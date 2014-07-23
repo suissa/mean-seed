@@ -17,11 +17,11 @@ angular.module('myApp.controllers', []).
     });
 
   }).
-  controller('MyCtrl1', function ($scope) {
+  controller('BeerListController', function ($scope) {
     // write Ctrl here
 
   }).
-  controller('MyCtrl2', function ($scope) {
+  controller('BeerCreateController', function ($scope) {
     // write Ctrl here
 
   });

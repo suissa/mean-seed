@@ -1,0 +1,8 @@
+h1 Adega Be MEAN
+p= msg
+
+ul
+for cerveja in data
+  li 
+    a(href='/beers/#{cerveja._id}') 
+      | #{cerveja.name} - #{cerveja.category}

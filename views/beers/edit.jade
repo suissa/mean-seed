@@ -1,0 +1,39 @@
+h1 Adega Be MEAN
+p= msg
+
+form(action='/api/beers/#{data._id}?_method=PUT',
+    method='POST') 
+  .form-group
+    label Name: 
+    input.form-control(value='#{data.name}'
+                        name='name')
+
+  .form-group
+    label Category: 
+    input.form-control(value='#{data.category}'
+                        name='category')
+
+  .form-group
+    label Price: R$
+    input.form-control(value='#{data.price}'
+                        name='price')
+
+  .form-group
+    label Alcohol: 
+    input.form-control(value='#{data.alcohol}'
+                        name='alcohol')
+
+  .form-group
+    label Description: 
+    input.form-control(value='#{data.description}'
+                        name='description') 
+  .form-group
+    input.btn.btn-lg(type='submit', value='Salvar')
+  //- input(type='hidden', 
+  //-       name='_method', 
+  //-       value='PUT')
+
+
+
+
+

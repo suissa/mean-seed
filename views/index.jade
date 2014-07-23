@@ -1,18 +1,18 @@
 extends layout
 
 block body
-  div(ng-controller='AppCtrl')
+  section(data-ng-controller='AppCtrl')
     h2 {{name}}
     ul.menu
       li
-        a(href='view1') view1
+        a(href='view1') List Beers
       li
-        a(href='view2') view2
+        a(href='view2') Add Beer
 
-    div(ng-view)
+    section(data-ng-view)
 
     div
-      | Angular seed app: v
+      | MEAN seed app: v
       span(app-version)
 
   script(src='js/lib/angular/angular.js')
