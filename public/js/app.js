@@ -10,17 +10,25 @@ angular.module('myApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/beers', {
-      templateUrl: 'expose/beers/list',
+    when('/view1', {
+      templateUrl: 'partials/partial1',
       controller: 'BeerListController'
     }).
-    when('/beers/add', {
-      templateUrl: 'expose/beers/create',
+    when('/view2', {
+      templateUrl: 'partials/partial2',
       controller: 'BeerCreateController'
     }).
     otherwise({
       redirectTo: '/view1'
     });
 
+    // when('/beers', {
+    //   templateUrl: 'expose/beers/list',
+    //   controller: 'BeerListController'
+    // }).
+    // when('/beers/add', {
+    //   templateUrl: 'expose/beers/create',
+    //   controller: 'BeerCreateController'
+    // }).
   $locationProvider.html5Mode(true);
 });

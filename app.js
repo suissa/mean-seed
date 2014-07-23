@@ -10,7 +10,6 @@ var express = require('express'),
   morgan = require('morgan'),
   routes = require('./routes'),
   partials = require('./routes/partials'),
-  api = require('./routes/api'),
   db = require('./models/db'),
   http = require('http'),
   path = require('path');
