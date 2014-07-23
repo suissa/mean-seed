@@ -52,24 +52,20 @@ module.exports = {
     var url = 'http://api.openbeerdatabase.com/v1/beers.json';
     // res.send(url);
     http.get(url, function(response){
-      response.setEncoding('utf8');
       var body = '';
+      response.setEncoding('utf8');
       response.on('data', function(chunk){
-          // console.log(chunk);
           body += chunk;
-          // res.render('partials/preload', {beers: chunk});
       });
       response.on('end', function () {
-        var list = JSON.parse(body);
-        list = list.beers
+        var list = JSON.parse(body).beers;
         Beer.create(list, function (err) {
           if (err){
-            res.send(0);
+            res.json(err);
           }
-          res.send(list);
+          res.json(list);
         });
       });
-
     });
 
   }
