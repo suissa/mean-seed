@@ -14,7 +14,7 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/partial1',
       controller: 'BeerListController'
     }).
-    when('/view2', {
+    when('/beers/create', {
       templateUrl: 'partials/partial2',
       controller: 'BeerCreateController'
     }).
