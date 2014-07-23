@@ -10,7 +10,7 @@ angular.module('myApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
+    when('/beers', {
       templateUrl: 'partials/partial1',
       controller: 'BeerListController'
     }).
