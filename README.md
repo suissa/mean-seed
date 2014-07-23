@@ -1,3 +1,21 @@
+#MEAN-Seed
+
+##To install
+
+    npm install
+
+##To run
+
+    npm start
+
+##To populate Mongo
+    GET /api/beers/populate
+
+
+
+
+MEAN-seed is based in Angular Express Seed, you can see more about below.
+
 # Angular Express Seed
 
 Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an

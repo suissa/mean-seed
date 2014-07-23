@@ -17,6 +17,10 @@ router.get('/', function(req, res) {
   _beer.retrieve(req, res, cb);
 });
 
+router.get('/populate', function(req, res) {
+  _beer.populate(req, res, cb);
+});
+
 router.get('/id/:id', function(req, res) {
   _beer.findOneById(req, res, cb);
 });
@@ -24,6 +28,10 @@ router.get('/id/:id', function(req, res) {
 router.get('/name/:name', function(req, res) {
   _beer.findOneByName(req, res, cb);
 });
+router.get('/name/:name', function(req, res) {
+  _beer.findOneByName(req, res, cb);
+});
+
 
 router.post('/', function(req, res) {
   _beer.create(req, res, cb);

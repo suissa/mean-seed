@@ -1,5 +1,5 @@
 var Beer = require('../models/beer');
-console.log(Beer);
+// console.log(Beer);
 var beer_mock = {
   "id": 44,
   "abv": 4.8,
@@ -23,13 +23,13 @@ describe("Beers", function(){
   //   });  
   // });
 
-  it("Retrieve Beers", function(done){ 
-    var query = {};
-    Beer.find(query, function(doc){     
-      console.log(doc); 
-      // doc.name.should.equal(beer_mock.name);       
-      done();    
-    });  
-  });
+  // it("Retrieve Beers", function(done){ 
+  //   var query = {};
+  //   Beer.find(query, function(doc){     
+  //     // console.log(doc); 
+  //     // doc.name.should.equal(beer_mock.name);       
+  //     done();    
+  //   });  
+  // });
 
 });
