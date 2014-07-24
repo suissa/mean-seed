@@ -1,7 +1,6 @@
 'use strict';
 
-
-// Controllers 
+// Helpers
 
 var removeItem = function(arr, item){
   var index = arr.indexOf(item);
@@ -18,6 +17,7 @@ var cbFindError = function (error, $scope) {
     $scope.status = 'Unable to load beers: ' + error.message;
 }
 
+// Controllers 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
 
@@ -33,7 +33,8 @@ angular.module('myApp.controllers', []).
     });
 
   }).
-  controller('RemoveBeer', ['$scope', '$http', 'BeerService', 
+  controller('RemoveBeer', 
+    ['$scope', '$http', 'BeerService', 
     function ($scope, $http, BeerService) {
       var Beer = BeerService;
     
@@ -49,24 +50,17 @@ angular.module('myApp.controllers', []).
 
         }
     }
-      $scope.tira = function(id) {
-        alert('dskjfhduifhsu');
-      }
   }]).
-  controller('BeerListController', ['$scope', '$http', 'BeerService', 
+  controller('BeerListController', 
+    ['$scope', '$http', 'BeerService', 
     function ($scope, $http, BeerService) {
 
-      // Callbacks
-      var cbFindSuccess = function (data) {
-          $scope.beers = data.data;
-          console.log(data);
-      };
-      var cbFindError = function (error) {
-          $scope.status = 'Unable to load beers: ' + error.message;
-      }
-
       var Beer = BeerService;
-      Beer.find().then(cbFindSuccess, cbFindError);
+      Beer.find().then(function(data){
+        cbFindSuccess(data, $scope);
+      }, function(err){
+        cbFindError(err, $scope);
+      });
 
   }]).
   controller('BeerCreateController', 
