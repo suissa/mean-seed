@@ -1,6 +1,22 @@
 'use strict';
 
-/* Controllers */
+
+// Controllers 
+
+var removeItem = function(arr, item){
+  var index = arr.indexOf(item);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+}
+
+var cbFindSuccess = function (data, $scope) {
+    $scope.beers = data.data;
+    console.log(data);
+};
+var cbFindError = function (error, $scope) {
+    $scope.status = 'Unable to load beers: ' + error.message;
+}
 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
@@ -17,25 +33,71 @@ angular.module('myApp.controllers', []).
     });
 
   }).
-  controller('BeerListController', ['$scope', '$http', 
-    function ($scope, $http) {
+  controller('RemoveBeer', ['$scope', '$http', 'BeerService', 
+    function ($scope, $http, BeerService) {
+      var Beer = BeerService;
+    
+      $scope.remove = function(beer){
+        Beer.remove(beer).
+        success(function (data) {
+          removeItem($scope.beers, beer);
+        }).
+        error(function (error) {
+            $scope.status = 'Unable to load beers: ' + error.message;
+        });
+      // var method = 'DELETE';
+      // var url = '/api/beers/_id/'+cerveja._id;
+      // console.log(url);
+      // if(confirm('Are you sure?')){
+      //   $http({
+      //     method: method,
+      //     url: url
+      //   })
+      //   .success(function(data){
+      //     $scope.msg = 'Beer ' +cerveja.name+ ' deleted successfully';
+      //   })
+      //   .error(function(data){
+      //     $scope.msg = 'ERROR on DELETE';
+      //   });
 
-      var url = 'api/beers';
-      var method = 'GET';
+      // }
+    }
+      $scope.tira = function(id) {
+        alert('dskjfhduifhsu');
+      }
+  }]).
+  controller('BeerListController', ['$scope', '$http', 'BeerService', 
+    function ($scope, $http, BeerService) {
 
-      $scope.message = 'Listagem de Cervejas';
+      // Callbacks
+      var cbFindSuccess = function (data) {
+          $scope.beers = data.data;
+          console.log(data);
+      };
+      var cbFindError = function (error) {
+          $scope.status = 'Unable to load beers: ' + error.message;
+      }
 
-      $http({
-        url: url,
-        method: method
-      }).
-      success(function(data){
-        console.log(data);
-        $scope.data = data;
-      }).
-      error(function(err){
-        console.log(err);
-      });
+      var Beer = BeerService;
+      Beer.find().then(cbFindSuccess, cbFindError);
+
+
+      // var url = 'api/beers';
+      // var method = 'GET';
+
+      // $scope.message = 'Retrieve Beers';
+
+      // $http({
+      //   url: url,
+      //   method: method
+      // }).
+      // success(function(data){
+      //   console.log(data);
+      //   $scope.data = data;
+      // }).
+      // error(function(err){
+      //   console.log(err);
+      // });
 
   }]).
   controller('BeerCreateController', function ($scope) {
@@ -50,7 +112,7 @@ angular.module('myApp.controllers', []).
       var url = 'api/beers/_id/'+id;
       var method = 'GET';
 
-      $scope.message = 'Retrieve beers';
+      $scope.message = 'Show Beer';
 
       $http({
         url: url,
@@ -76,12 +138,12 @@ angular.module('myApp.controllers', []).
         success(function(data){
           console.log(data);
           $scope.beer = data;
-          $scope.message = 'Cerveja ' +beer.name+ 'removida com sucesso!';
+          $scope.message = 'Beer ' +beer.name+ 'removed successfully!';
           $location.path('/beers');
         }).
         error(function(err){
           console.log(err);
-          $scope.message = 'Cerveja não pode ser removida!';
+          $scope.message = 'Beer cant be removed!';
         });
       }
 
@@ -94,7 +156,7 @@ angular.module('myApp.controllers', []).
       var url = 'api/beers/_id/'+id;
       var method = 'GET';
 
-      $scope.message = 'Alteração de Cervejas';
+      $scope.message = 'Update Beer';
       // Pega os valores da cerveja a ser alterada
       $http({
         url: url,
@@ -120,14 +182,50 @@ angular.module('myApp.controllers', []).
         success(function(data){
           console.log(data);
           $scope.data = data;
-          $scope.msg = 'Cerveja ' +beer.name+ ' alterada com sucesso'; 
+          $scope.msg = 'Beer ' +beer.name+ ' update successfully'; 
         }).
         error(function(err){
           console.log(err);
-          $scope.msg = 'Cerveja não pode ser alterada'; 
+          $scope.msg = 'Beer cant be updated'; 
         });
       }
-      
-   
+  }]).
+  controller('BeerRemoveController', ['$scope', '$http', '$routeParams',
+    function ($scope, $http, $routeParams) {
+    $scope.title = 'Workshop Be MEAN';
+
+    var method = 'GET';
+    var id = $routeParams.id;
+    var url = '/api/beers/_id/'+id;
+    $http({
+      method: method,
+      url: url
+    })
+    .success(function(data){
+      $scope.beer = data;
+      $scope.msg = 'About ' + $scope.beer.name;
+    })
+    .error(function(data){
+      $scope.msg = 'Error in get beer';
+    });
+
+    $scope.remove = function(cerveja){
+      var method = 'DELETE';
+      var url = '/api/beers/_id/'+cerveja._id;
+      console.log(url);
+      if(confirm('Are you sure?')){
+        $http({
+          method: method,
+          url: url
+        })
+        .success(function(data){
+          $scope.msg = 'Beer ' +cerveja.name+ ' deleted successfully';
+        })
+        .error(function(data){
+          $scope.msg = 'ERROR on DELETE';
+        });
+
+      }
+    }
 
   }]);

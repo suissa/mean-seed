@@ -1,8 +1,12 @@
-h1 Adega Be MEAN
-p= msg
+h3 List of Beers
+//- p= msg
 
 ul
-for cerveja in data
-  li 
-    a(href='/beers/#{cerveja._id}') 
-      | #{cerveja.name} - #{cerveja.category}
+  li(data-ng-repeat='beer in beers') 
+    hr
+    a(href='/beers/{{beer._id}}') 
+      | {{beer.name}}
+    a(href='/beers/{{beer._id}}/edit') 
+    span(data-ng-controller='RemoveBeer')
+      button(data-ng-click='remove(beer)') REMOVER
+

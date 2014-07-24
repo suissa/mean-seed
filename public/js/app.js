@@ -11,11 +11,11 @@ angular.module('myApp', [
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/beers', {
-      templateUrl: 'partials/partial1',
+      templateUrl: 'expose/beers/list',
       controller: 'BeerListController'
     }).
-    when('/beers/create', {
-      templateUrl: 'partials/partial2',
+    when('/beers/add', {
+      templateUrl: 'expose/beers/create',
       controller: 'BeerCreateController'
     }).
     when('/beers/:id', {
@@ -27,8 +27,8 @@ config(function ($routeProvider, $locationProvider) {
       controller: 'BeerEditController'
     }).
     when('/beers/:id/remove', {
-      templateUrl: 'expose/beers/show',
-      controller: 'BeerShowController'
+      templateUrl: 'expose/beers/remove',
+      controller: 'BeerRemoveController'
     }).
     otherwise({
       redirectTo: '/beers'
