@@ -38,29 +38,16 @@ angular.module('myApp.controllers', []).
       var Beer = BeerService;
     
       $scope.remove = function(beer){
-        Beer.remove(beer).
-        success(function (data) {
-          removeItem($scope.beers, beer);
-        }).
-        error(function (error) {
-            $scope.status = 'Unable to load beers: ' + error.message;
-        });
-      // var method = 'DELETE';
-      // var url = '/api/beers/_id/'+cerveja._id;
-      // console.log(url);
-      // if(confirm('Are you sure?')){
-      //   $http({
-      //     method: method,
-      //     url: url
-      //   })
-      //   .success(function(data){
-      //     $scope.msg = 'Beer ' +cerveja.name+ ' deleted successfully';
-      //   })
-      //   .error(function(data){
-      //     $scope.msg = 'ERROR on DELETE';
-      //   });
+        if(confirm('Are you sure? Beer '+beer.name+' will be removed.')){
+          Beer.remove(beer).
+          success(function (data) {
+            removeItem($scope.beers, beer);
+          }).
+          error(function (error) {
+              $scope.status = 'Unable to load beers: ' + error.message;
+          });
 
-      // }
+        }
     }
       $scope.tira = function(id) {
         alert('dskjfhduifhsu');
@@ -81,29 +68,34 @@ angular.module('myApp.controllers', []).
       var Beer = BeerService;
       Beer.find().then(cbFindSuccess, cbFindError);
 
+  }]).
+  controller('BeerCreateController', 
+    ['$scope', '$http',
+    function ($scope, $http) {
 
-      // var url = 'api/beers';
-      // var method = 'GET';
+      var url = 'api/beers/';
+      var method = 'POST';
+      
+      $scope.message = 'Crate Beer';
 
-      // $scope.message = 'Retrieve Beers';
-
-      // $http({
-      //   url: url,
-      //   method: method
-      // }).
-      // success(function(data){
-      //   console.log(data);
-      //   $scope.data = data;
-      // }).
-      // error(function(err){
-      //   console.log(err);
-      // });
+      $scope.create = function(beer){     
+        $http({
+          url: url,
+          method: method,
+          data: beer
+        }).
+        success(function(data){
+          console.log(data);
+          $scope.data = data;
+          $scope.msg = 'Cerveja ' +beer.name+ ' cadastrada com sucesso'; 
+        }).
+        error(function(err){
+          console.log(err);
+          $scope.msg = 'Cerveja não pode ser cadastrada'; 
+        });
+      }    
 
   }]).
-  controller('BeerCreateController', function ($scope) {
-    // write Ctrl here
-
-  }).
   controller('BeerShowController', 
     ['$scope', '$http', '$routeParams', '$location',
     function ($scope, $http, $routeParams, $location) {
