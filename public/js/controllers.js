@@ -41,4 +41,48 @@ angular.module('myApp.controllers', []).
   controller('BeerCreateController', function ($scope) {
     // write Ctrl here
 
-  });
+  }).
+  controller('BeerShowController', 
+    ['$scope', '$http', '$routeParams', '$location',
+    function ($scope, $http, $routeParams, $location) {
+
+      var id = $routeParams.id;
+      var url = 'api/beers/_id/'+id;
+      var method = 'GET';
+
+      $scope.message = 'Retrieve beers';
+
+      $http({
+        url: url,
+        method: method
+      }).
+      success(function(data){
+        console.log('Beer: ', data);
+        $scope.beer = data;
+      }).
+      error(function(err){
+        console.log(err);
+      });
+
+      $scope.remove = function(beer){
+        var id = beer._id;
+        var url = 'api/beers/'+id;
+        var method = 'DELETE';
+
+        $http({
+          url: url,
+          method: method
+        }).
+        success(function(data){
+          console.log(data);
+          $scope.beer = data;
+          $scope.message = 'Cerveja ' +beer.name+ 'removida com sucesso!';
+          $location.path('/beers');
+        }).
+        error(function(err){
+          console.log(err);
+          $scope.message = 'Cerveja não pode ser removida!';
+        });
+      }
+
+  }]);

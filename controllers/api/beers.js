@@ -15,6 +15,14 @@ module.exports = {
       cb(err, data, res);
     });
   },
+  findOneBy_Id: function(req, res, cb){
+    var id = req.params.id;
+    var query = {_id: id};
+
+    Beer.findOne(query, function (err, data) {
+      cb(err, data, res);
+    });
+  },
   findOneById: function(req, res, cb){
     var id = req.params.id;
     var query = {id: id};
@@ -67,7 +75,6 @@ module.exports = {
         });
       });
     });
-
   }
 };
 

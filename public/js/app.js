@@ -18,8 +18,12 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/partial2',
       controller: 'BeerCreateController'
     }).
+    when('/beers/:id', {
+      templateUrl: 'expose/beers/show',
+      controller: 'BeerShowController'
+    }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/beers'
     });
 
     // when('/beers', {

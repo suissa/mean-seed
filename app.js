@@ -10,6 +10,7 @@ var express = require('express'),
   morgan = require('morgan'),
   routes = require('./routes'),
   partials = require('./routes/partials'),
+  expose = require('./routes/expose'),
   db = require('./models/db'),
   http = require('http'),
   path = require('path');
@@ -56,10 +57,11 @@ app.use('/', routes);
 
 // server view partials
 app.use('/partials', partials);
+app.use('/expose', expose);
 
 // JSON API
-app.use('/api/name', api.name);
 app.use('/api/beers', api.beers);
+app.use('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(req, res, next) {

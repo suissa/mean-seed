@@ -14,11 +14,16 @@ var cb = function(err, data, res){
 }
 
 router.get('/', function(req, res) {
+  console.log('get --------------');
   _beer.retrieve(req, res, cb);
 });
 
 router.get('/populate', function(req, res) {
   _beer.populate(req, res, cb);
+});
+
+router.get('/_id/:id', function(req, res) {
+  _beer.findOneBy_Id(req, res, cb);
 });
 
 router.get('/id/:id', function(req, res) {
