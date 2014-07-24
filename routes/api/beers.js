@@ -42,11 +42,11 @@ router.post('/', function(req, res) {
   _beer.create(req, res, cb);
 });
 
-router.put('/:id', function(req, res) {
+router.put('/_id/:id', function(req, res) {
   _beer.update(req, res, cb);
 });
 
-router.delete('/:id', function(req, res) {
+router.delete('/_id/:id', function(req, res) {
   _beer.delete(req, res, cb);
 });
 

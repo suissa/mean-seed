@@ -43,7 +43,7 @@ module.exports = {
     var id = req.params.id;
     var query = {_id: id}; 
     var mod = req.body;
-
+    delete mod._id;
     Beer.update(query, mod, function (err, data) {
       cb(err, data, res);
     });

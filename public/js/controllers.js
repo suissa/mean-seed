@@ -85,4 +85,49 @@ angular.module('myApp.controllers', []).
         });
       }
 
+  }]).
+  controller('BeerEditController', 
+    ['$scope', '$http', '$routeParams',
+    function ($scope, $http, $routeParams) {
+
+      var id = $routeParams.id;
+      var url = 'api/beers/_id/'+id;
+      var method = 'GET';
+
+      $scope.message = 'Alteração de Cervejas';
+      // Pega os valores da cerveja a ser alterada
+      $http({
+        url: url,
+        method: method
+      }).
+      success(function(data){
+        console.log(data);
+        $scope.beer = data;
+      }).
+      error(function(err){
+        console.log(err);
+      });
+
+      $scope.update = function(beer){
+
+        var method = 'PUT';
+
+        $http({
+          url: url,
+          method: method,
+          data: beer
+        }).
+        success(function(data){
+          console.log(data);
+          $scope.data = data;
+          $scope.msg = 'Cerveja ' +beer.name+ ' alterada com sucesso'; 
+        }).
+        error(function(err){
+          console.log(err);
+          $scope.msg = 'Cerveja não pode ser alterada'; 
+        });
+      }
+      
+   
+
   }]);

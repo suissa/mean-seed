@@ -1,38 +1,33 @@
-h1 Adega Be MEAN
-p= msg
+//- h1 Adega Be MEAN
+//- p {{message}}
 
-form(action='/api/beers/#{data._id}?_method=PUT',
-    method='POST') 
+form
   .form-group
     label Name: 
-    input.form-control(value='#{data.name}'
+    input.form-control(data-ng-model='beer.name'
                         name='name')
 
   .form-group
     label Category: 
-    input.form-control(value='#{data.category}'
+    input.form-control(data-ng-model='beer.category'
                         name='category')
 
   .form-group
-    label Price: R$
-    input.form-control(value='#{data.price}'
-                        name='price')
+    label ABV:
+    input.form-control(data-ng-model='beer.abv'
+                        name='abv')
 
   .form-group
-    label Alcohol: 
-    input.form-control(value='#{data.alcohol}'
-                        name='alcohol')
+    label brewery: 
+    input.form-control(data-ng-model='beer.brewery.name'
+                        name='brewery.name')
 
   .form-group
     label Description: 
-    input.form-control(value='#{data.description}'
+    textarea.form-control(data-ng-model='beer.description'
                         name='description') 
   .form-group
-    input.btn.btn-lg(type='submit', value='Salvar')
-  //- input(type='hidden', 
-  //-       name='_method', 
-  //-       value='PUT')
-
+    button.btn.btn-lg(data-ng-click='update(beer)') Alterar
 
 
 
