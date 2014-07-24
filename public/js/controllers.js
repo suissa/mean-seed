@@ -11,6 +11,7 @@ var removeItem = function(arr, item){
 
 var cbFindSuccess = function (data, $scope) {
     $scope.beers = data.data;
+    $scope.msg = 'List complete';
     console.log(data);
 };
 var cbFindError = function (error, $scope) {

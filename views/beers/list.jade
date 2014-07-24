@@ -3,7 +3,6 @@ p.message= msg
 
 ul
   li(data-ng-repeat='beer in beers') 
-    hr
     a(href='/beers/{{beer._id}}') 
       | {{beer.name}}
     a(href='/beers/{{beer._id}}/edit') 
