@@ -39,7 +39,7 @@ Clone the angular-express-seed repository, run `npm install` to grab the depende
 
 ### Running the app
 
-Runs like a typical express app:
+Runs like a typical node app:
 
     node app.js
 
