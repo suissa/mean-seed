@@ -11,6 +11,10 @@
 ##To populate Mongo
     GET /api/beers/populate
 
+##To see running
+
+    http://localhost:3000/beers
+
 ##The API
 
 > GET /api/beers
