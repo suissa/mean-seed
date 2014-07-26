@@ -1,0 +1,35 @@
+section.pure-g
+  article.pure-u-1-3
+  article.pure-u-1-3
+    h3.title Create Beer
+    p {{message}}
+
+    form.pure-form.pure-form-stacked
+      div.pure-control-group      
+        label(for='name') Name: 
+        input.form-control(name='name',
+                          data-ng-model='beer.name')
+      div.pure-control-group
+        label(for='category') Category: 
+        input.form-control(name='category',
+                          data-ng-model='beer.category')
+      div.pure-control-group
+        label(for='abv') ABV: 
+        input.form-control(name='abv', type='number', min=0, step=1,
+                          data-ng-model='beer.abv')
+      div.pure-control-group
+        label(for='brewery') Brewery: 
+        input.form-control(name='brewery',
+                          data-ng-model='beer.brewery.name')
+      div.pure-control-group
+        label(for='description') Description: 
+        textarea.form-control(name='description',
+                          data-ng-model='beer.description')
+
+      button.btn.btn-lg(data-ng-click='create(beer)') Create
+  article.pure-u-1-3
+
+
+
+
+

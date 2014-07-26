@@ -11,7 +11,7 @@ var express = require('express'),
   routes = require('./routes'),
   partials = require('./routes/partials'),
   expose = require('./routes/expose'),
-  db = require('./models/db'),
+  db = require('./config/db'),
   http = require('http'),
   path = require('path');
 
@@ -19,7 +19,7 @@ var app = module.exports = express();
 
 var api = {};
 api.name = require('./routes/api/name');
-api.beers = require('./routes/api/beers');
+api.beers = require('./modules/beers/api.routes');
 
 /**
  * Configuration
