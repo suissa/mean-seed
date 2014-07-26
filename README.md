@@ -11,7 +11,14 @@
 ##To populate Mongo
     GET /api/beers/populate
 
+##A API
 
+> GET /api/beers
+> GET /api/beers/populate
+> GET /api/beers/\_id/:id
+> POST /api/beers/
+> PUT /api/beers/\_id/:id
+> DELETE /api/beers/\_id/:id
 
 
 MEAN-seed is based in Angular Express Seed, you can see more about below.
@@ -39,7 +46,7 @@ Clone the angular-express-seed repository, run `npm install` to grab the depende
 
 ### Running the app
 
-Runs like a typical express app:
+Runs like a typical node app:
 
     node app.js
 
