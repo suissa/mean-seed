@@ -42,7 +42,7 @@ var _beer = {
 
 // Controllers 
 angular.module('myApp.modules.Beer.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
+  controller('AppController', function ($scope, $http) {
 
     $http({
       method: 'GET',

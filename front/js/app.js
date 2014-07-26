@@ -33,14 +33,5 @@ config(function ($routeProvider, $locationProvider) {
     otherwise({
       redirectTo: '/beers'
     });
-
-    // when('/beers', {
-    //   templateUrl: 'expose/beers/list',
-    //   controller: 'BeerListController'
-    // }).
-    // when('/beers/add', {
-    //   templateUrl: 'expose/beers/create',
-    //   controller: 'BeerCreateController'
-    // }).
   $locationProvider.html5Mode(true);
 });

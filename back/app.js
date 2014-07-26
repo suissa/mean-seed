@@ -8,9 +8,9 @@ var express = require('express'),
   methodOverride = require('method-override'),
   errorHandler = require('errorhandler'),
   morgan = require('morgan'),
-  routes = require('./routes'),
-  partials = require('./routes/partials'),
-  expose = require('./routes/expose'),
+  routes = require('./modules/main/routes'),
+  partials = require('./modules/expose/partials'),
+  expose = require('./modules/expose/index'),
   db = require('./config/db'),
   http = require('http'),
   path = require('path');
@@ -18,7 +18,6 @@ var express = require('express'),
 var app = module.exports = express();
 
 var api = {};
-api.name = require('./routes/api/name');
 api.beers = require('./modules/beers/api.routes');
 
 /**
@@ -61,7 +60,6 @@ app.use('/expose', expose);
 
 // JSON API
 app.use('/api/beers', api.beers);
-app.use('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(req, res, next) {

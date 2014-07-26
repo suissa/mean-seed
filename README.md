@@ -11,7 +11,7 @@
 ##To populate Mongo
     GET /api/beers/populate
 
-##A API
+##The API
 
 > GET /api/beers
 > GET /api/beers/populate
@@ -22,6 +22,21 @@
 
 
 #Architecture
+    back/
+      bin/
+      config/
+    front/
+      bower_components/
+      css/
+      js/
+        lib/
+        modules/
+          {{entity}}/
+            controllers.js
+            services.js
+            directives.js
+            filters.js
+
 
 #Nomenclature
 
