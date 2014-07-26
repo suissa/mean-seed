@@ -60,28 +60,38 @@
 ##AngularJs
 
 ###Angularjs - Modules
+Name:
 >{Entity}{Action}Controller
 
+Folder:
 >/public/js/modules/{{entity}}
 
 ###Angularjs - Controllers
+Name:
 >{Entity}{Action}Controller
 
+Folder:
 >/public/js/modules/{{entity}}/controllers.js
 
 ###Angularjs - Services
+Name:
 >{Entity}{Service|Factory}
 
+Folder:
 >/public/js/modules/{{entity}}/services.js
 
 ###Angularjs - Filters
+Name:
 >{Entity}{FilterName}
 
+Folder:
 >/public/js/modules/{{entity}}/services.js
 
 ###Angularjs - Directives
+Name:
 >{Entity}{DirectiveName}
 
+Folder:
 >/public/js/modules/{{entity}}/directives.js
 
 
