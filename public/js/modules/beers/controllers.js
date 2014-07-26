@@ -10,11 +10,19 @@ var _beer = {
   },
   cbFindSuccess: function (data, $scope) {
       $scope.beers = data.data;
-      $scope.msg = 'List complete';
+      $scope.message = 'List complete';
       console.log(data);
   },
   cbFindError: function (error, $scope) {
       $scope.status = 'Unable to load beers: ' + error.message;
+  },
+  cbCreateSuccess: function (data, $scope) {
+      $scope.beer = data.data;
+      $scope.message = 'Beer ' + $scope.beer.name + '  created successfully!';
+      console.log('Beer: ', $scope.beer);
+  },
+  cbCreateError: function (error, $scope) {
+      $scope.status = 'Unable to create beer: ' + error.message;
   }
 };
 
@@ -52,35 +60,20 @@ angular.module('myApp.modules.Beer.controllers', []).
         }
     }
   }]).
-  controller('BeerListController', 
-    ['$scope', '$http', 'BeerService', 
+  controller('BeerCreateController', 
+    ['$scope', '$http', 'BeerService',
     function ($scope, $http, BeerService) {
 
       var Beer = BeerService;
-      Beer.find().then(function(data){
-        _beer.cbFindSuccess(data, $scope);
-      }, function(err){
-        _beer.cbFindError(err, $scope);
-      });
 
-  }]).
-  controller('BeerCreateController', 'BeerService', 
-    ['$scope', '$http',
-    function ($scope, $http, BeerService) {
+      $scope.message = 'Fill the form bellow';
 
-      var url = 'api/beers/';
-      var method = 'POST';
-      
-      $scope.message = 'Fill teh form bellow';
-
-      var Beer = BeerService;
-
-      $scope.create = function (data){
-        Beer.add().then(
+      $scope.create = function (beer){
+        Beer.create(beer).then(
           function (data){
-          _beer.cbFindSuccess(data, $scope);
+          _beer.cbCreateSuccess(data, $scope);
         }, function(err){
-          _beer.cbFindError(err, $scope); 
+          _beer.cbCreateError(err, $scope); 
         });
       }
 
@@ -100,6 +93,18 @@ angular.module('myApp.modules.Beer.controllers', []).
       //     $scope.msg = 'Cerveja não pode ser cadastrada'; 
       //   });
       // }    
+
+  }]).
+  controller('BeerListController', 
+    ['$scope', '$http', 'BeerService', 
+    function ($scope, $http, BeerService) {
+
+      var Beer = BeerService;
+      Beer.find().then(function(data){
+        _beer.cbFindSuccess(data, $scope);
+      }, function(err){
+        _beer.cbFindError(err, $scope);
+      });
 
   }]).
   controller('BeerShowController', 

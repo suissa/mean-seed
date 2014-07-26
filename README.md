@@ -21,6 +21,33 @@
 > DELETE /api/beers/\_id/:id
 
 
+**depois traduzo**
+#Nomenclature
+
+##AngularJs
+
+###Angularjs - Modules
+  {Entity}{Action}Controller
+>/public/js/modules/{{entity}}
+
+###Angularjs - Controllers
+  {Entity}{Action}Controller
+>/public/js/modules/{{entity}}/controllers.js
+
+###Angularjs - Services
+  {Entity}{Service|Factory}
+>/public/js/modules/{{entity}}/services.js
+
+###Angularjs - Filters
+  {Entity}{FilterName}
+  //BeerFil
+>/public/js/modules/{{entity}}/services.js
+
+###Angularjs - Directives
+  {Entity}{DirectiveName}
+>/public/js/modules/{{entity}}/directives.js
+
+
 MEAN-seed is based in Angular Express Seed, you can see more about below.
 
 # Angular Express Seed
@@ -104,3 +131,9 @@ your friends.
 
 ## License
 MIT
+
+
+
+
+
+

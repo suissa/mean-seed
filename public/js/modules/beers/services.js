@@ -18,7 +18,7 @@ angular.module('myApp.modules.Beer.services', []).
           return $http.get(urlBase + '/_id/' + id);
       };
 
-      dataFactory.add = function(data) {
+      dataFactory.create = function(data) {
           return $http.post(urlBase, data);
       };
 
@@ -43,7 +43,7 @@ angular.module('myApp.modules.Beer.services', []).
           return $http.get(urlBase + '/_id/' + id);
       };
 
-      this.add = function(data) {
+      this.create = function(data) {
           return $http.post(urlBase, data);
       };
 
