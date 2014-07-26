@@ -24,8 +24,8 @@ var _beer = {
       $scope.status = 'Unable to create beer: ' + error.message;
   },
   cbUpdateSuccess: function (data, $scope) {
-      $scope.beer = data.data;
-      $scope.message = 'Beer ' + data.name + '  update successfully!';
+      // $scope.beer = data.data;
+      $scope.message = 'Beer ' + $scope.beer.name + '  update successfully!';
   },
   cbUpdateError: function (error, $scope) {
       $scope.status = 'Unable to create beer: ' + error.message;
