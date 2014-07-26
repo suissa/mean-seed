@@ -1,4 +1,4 @@
-var Beer = require('./model');
+var Beer = require('../model');
 var http = require('http');
 var msg = '';
 

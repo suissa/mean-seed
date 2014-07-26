@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var _beer = require('./api.controller');
+var _beer = require('./controller');
 
 var cb = function(err, data, res){
   if (err){

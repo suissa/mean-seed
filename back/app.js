@@ -18,7 +18,7 @@ var express = require('express'),
 var app = module.exports = express();
 
 var api = {};
-api.beers = require('./modules/beers/api.routes');
+api.beers = require('./modules/beers/api/routes');
 
 /**
  * Configuration

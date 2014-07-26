@@ -25,6 +25,24 @@
     back/
       bin/
       config/
+        db.js
+      modules/
+        main/
+        expose/
+        {{entity}}/
+          api/
+            controller.js
+            routes.js
+          views/
+            create.jade
+            edit.jade
+            list.jade
+            remove.jade
+            show.jade
+          controller.js
+          model.js
+          routes.js
+
     front/
       bower_components/
       css/
@@ -39,7 +57,6 @@
 
 
 #Nomenclature
-
 ##AngularJs
 
 ###Angularjs - Modules
