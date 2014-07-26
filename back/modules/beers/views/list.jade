@@ -4,12 +4,21 @@ section.pure-g
     h3.title List of Beers
     p.message {{ message }}
 
-    ul
-      li(data-ng-repeat='beer in beers') 
-        a(href='/beers/{{beer._id}}') 
-          | {{beer.name}}
-        a(href='/beers/{{beer._id}}/edit') 
-        span(data-ng-controller='RemoveBeer')
-          button(data-ng-click='remove(beer)') REMOVER
+    table
+      thead
+        tr
+          th 
+      tbody
+        tr(data-ng-repeat='beer in beers') 
+          td
+            a(href='/beers/{{beer._id}}') 
+              | {{beer.name}}
+          td
+            a(href='/beers/{{beer._id}}/edit') 
+              | EDIT
+          td 
+            span(data-ng-controller='RemoveBeer')
+              button(data-ng-click='remove(beer)') REMOVER
+        
   article.pure-u-1-3
 

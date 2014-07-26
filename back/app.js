@@ -27,7 +27,7 @@ api.beers = require('./modules/beers/api.routes');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/modules');
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -65,7 +65,7 @@ app.use('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(req, res, next) {
-  res.render('index');
+  res.render('main/views/index');
 });
 
 

@@ -21,7 +21,8 @@
 > DELETE /api/beers/\_id/:id
 
 
-**depois traduzo**
+#Architecture
+
 #Nomenclature
 
 ##AngularJs

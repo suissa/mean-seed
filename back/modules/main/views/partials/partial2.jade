@@ -1,0 +1,34 @@
+h3 Create Beer
+
+form 
+  .form-group
+    label Name: 
+    input.form-control(name='name',
+                        data-ng-model='beer.name')
+
+  .form-group
+    label Category: 
+    input.form-control(name='category',
+                        data-ng-model='beer.category')
+
+  .form-group
+    label ABV: 
+    input.form-control(name='abv', type='number', min=0, step=1,
+                        data-ng-model='beer.abv')
+
+  .form-group
+    label Brewery: 
+    input.form-control(name='brewery',
+                        data-ng-model='beer.brewery.name')
+
+  .form-group
+    label Description: 
+    textarea.form-control(name='description',
+                        data-ng-model='beer.description')
+  .form-group
+    button.btn.btn-lg(data-ng-click='create(beer)') Cadastrar
+
+
+
+
+

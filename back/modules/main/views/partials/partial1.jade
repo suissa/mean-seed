@@ -1,0 +1,8 @@
+h3 List of Beers
+//- p= msg
+
+ul
+  li(data-ng-repeat='beer in data') 
+    hr
+    a(href='/beers/{{beer._id}}') 
+      | {{beer.name}}

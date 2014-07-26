@@ -19,10 +19,23 @@ var _beer = {
   cbCreateSuccess: function (data, $scope) {
       $scope.beer = data.data;
       $scope.message = 'Beer ' + $scope.beer.name + '  created successfully!';
-      console.log('Beer: ', $scope.beer);
   },
   cbCreateError: function (error, $scope) {
       $scope.status = 'Unable to create beer: ' + error.message;
+  },
+  cbUpdateSuccess: function (data, $scope) {
+      $scope.beer = data.data;
+      $scope.message = 'Beer ' + data.name + '  update successfully!';
+  },
+  cbUpdateError: function (error, $scope) {
+      $scope.status = 'Unable to create beer: ' + error.message;
+  },
+  cbShowSuccess: function (data, $scope) {
+      $scope.beer = data.data;
+      $scope.message = 'Beer ' + data.name + '  retrieved successfully!';
+  },
+  cbShowError: function (error, $scope) {
+      $scope.status = 'Unable to retrieve beer: ' + error.message;
   }
 };
 
@@ -75,24 +88,7 @@ angular.module('myApp.modules.Beer.controllers', []).
         }, function(err){
           _beer.cbCreateError(err, $scope); 
         });
-      }
-
-      // $scope.create = function(beer){     
-      //   $http({
-      //     url: url,
-      //     method: method,
-      //     data: beer
-      //   }).
-      //   success(function(data){
-      //     console.log(data);
-      //     $scope.data = data;
-      //     $scope.msg = 'Cerveja ' +beer.name+ ' cadastrada com sucesso'; 
-      //   }).
-      //   error(function(err){
-      //     console.log(err);
-      //     $scope.msg = 'Cerveja não pode ser cadastrada'; 
-      //   });
-      // }    
+      } 
 
   }]).
   controller('BeerListController', 
@@ -108,8 +104,8 @@ angular.module('myApp.modules.Beer.controllers', []).
 
   }]).
   controller('BeerShowController', 
-    ['$scope', '$http', '$routeParams', '$location',
-    function ($scope, $http, $routeParams, $location) {
+    ['$scope', '$http', '$routeParams', '$location', 'BeerService',
+    function ($scope, $http, $routeParams, $location, BeerService) {
 
       var id = $routeParams.id;
       var url = 'api/beers/_id/'+id;
@@ -117,16 +113,11 @@ angular.module('myApp.modules.Beer.controllers', []).
 
       $scope.message = 'Show Beer';
 
-      $http({
-        url: url,
-        method: method
-      }).
-      success(function(data){
-        console.log('Beer: ', data);
-        $scope.beer = data;
-      }).
-      error(function(err){
-        console.log(err);
+      var Beer = BeerService;
+      Beer.findOne(id).then(function(data){
+        _beer.cbShowSuccess(data, $scope);
+      }, function(err){
+        _beer.cbShowError(err, $scope);
       });
 
       $scope.remove = function(beer){
@@ -152,45 +143,41 @@ angular.module('myApp.modules.Beer.controllers', []).
 
   }]).
   controller('BeerEditController', 
-    ['$scope', '$http', '$routeParams',
-    function ($scope, $http, $routeParams) {
+    ['$scope', '$http', '$routeParams', 'BeerService',
+    function ($scope, $http, $routeParams, BeerService) {
 
       var id = $routeParams.id;
       var url = 'api/beers/_id/'+id;
-      var method = 'GET';
 
-      $scope.message = 'Update Beer';
-      // Pega os valores da cerveja a ser alterada
-      $http({
-        url: url,
-        method: method
-      }).
-      success(function(data){
-        console.log(data);
-        $scope.beer = data;
-      }).
-      error(function(err){
-        console.log(err);
+      var Beer = BeerService;
+      Beer.find().then(function(data){
+        _beer.cbFindSuccess(data, $scope);
+      }, function(err){
+        _beer.cbFindError(err, $scope);
       });
 
       $scope.update = function(beer){
 
-        var method = 'PUT';
-
-        $http({
-          url: url,
-          method: method,
-          data: beer
-        }).
-        success(function(data){
-          console.log(data);
-          $scope.data = data;
-          $scope.msg = 'Beer ' +beer.name+ ' update successfully'; 
-        }).
-        error(function(err){
-          console.log(err);
-          $scope.msg = 'Beer cant be updated'; 
+        Beer.update(beer).then(function(data){
+          _beer.cbUpdateSuccess(data, $scope);
+        }, function(err){
+          _beer.cbUpdateError(err, $scope);
         });
+
+        // $http({
+        //   url: url,
+        //   method: method,
+        //   data: beer
+        // }).
+        // success(function(data){
+        //   console.log(data);
+        //   $scope.data = data;
+        //   $scope.msg = 'Beer ' +beer.name+ ' update successfully'; 
+        // }).
+        // error(function(err){
+        //   console.log(err);
+        //   $scope.msg = 'Beer cant be updated'; 
+        // });
       }
   }]).
   controller('BeerRemoveController', ['$scope', '$http', '$routeParams',
