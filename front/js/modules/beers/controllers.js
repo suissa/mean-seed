@@ -31,8 +31,9 @@ var _beer = {
       $scope.status = 'Unable to create beer: ' + error.message;
   },
   cbShowSuccess: function (data, $scope) {
+    console.log('Show: ', data);
       $scope.beer = data.data;
-      $scope.message = 'Beer ' + data.name + '  retrieved successfully!';
+      $scope.message = 'Beer ' + $scope.beer.name + '  retrieved successfully!';
   },
   cbShowError: function (error, $scope) {
       $scope.status = 'Unable to retrieve beer: ' + error.message;
@@ -150,10 +151,10 @@ angular.module('myApp.modules.Beer.controllers', []).
       var url = 'api/beers/_id/'+id;
 
       var Beer = BeerService;
-      Beer.find().then(function(data){
-        _beer.cbFindSuccess(data, $scope);
+      Beer.findOne(id).then(function(data){
+        _beer.cbShowSuccess(data, $scope);
       }, function(err){
-        _beer.cbFindError(err, $scope);
+        _beer.cbShowError(err, $scope);
       });
 
       $scope.update = function(beer){
