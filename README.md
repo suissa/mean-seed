@@ -60,23 +60,23 @@
 ##AngularJs
 
 ###Angularjs - Modules
-  ####{Entity}{Action}Controller
+####{Entity}{Action}Controller
 >/public/js/modules/{{entity}}
 
 ###Angularjs - Controllers
-  ####{Entity}{Action}Controller
+####{Entity}{Action}Controller
 >/public/js/modules/{{entity}}/controllers.js
 
 ###Angularjs - Services
-  ####{Entity}{Service|Factory}
+####{Entity}{Service|Factory}
 >/public/js/modules/{{entity}}/services.js
 
 ###Angularjs - Filters
-  ####{Entity}{FilterName}
+####{Entity}{FilterName}
 >/public/js/modules/{{entity}}/services.js
 
 ###Angularjs - Directives
-  ####{Entity}{DirectiveName}
+####{Entity}{DirectiveName}
 >/public/js/modules/{{entity}}/directives.js
 
 
