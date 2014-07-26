@@ -1,17 +1,13 @@
 extends layout
 
 block body
-  section(data-ng-controller='AppCtrl')
+  section.pure-u-4-4(data-ng-controller='AppCtrl')
     h2 {{name}}
-    ul.menu
-      li
-        a(href='beers') List Beers
-      li
-        a(href='beers/add') Add Beer
+    include main/menu-main
 
     section(data-ng-view)
 
-    div
+    section
       | MEAN seed app: v
       span(app-version)
 

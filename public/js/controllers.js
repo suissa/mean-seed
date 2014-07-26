@@ -71,7 +71,7 @@ angular.module('myApp.controllers', []).
       var url = 'api/beers/';
       var method = 'POST';
       
-      $scope.message = 'Crate Beer';
+      $scope.message = 'Fill teh form bellow';
 
       $scope.create = function(beer){     
         $http({
