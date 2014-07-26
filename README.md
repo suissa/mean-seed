@@ -95,6 +95,9 @@ Folder:
 >/public/js/modules/{{entity}}/directives.js
 
 
+**Wait for the Atomic Design**
+
+
 MEAN-seed is based in Angular Express Seed, you can see more about below.
 
 # Angular Express Seed
