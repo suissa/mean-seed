@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prestart" : "gulp",
     "start": "node back/bin/www"
   },
   "dependencies": {
@@ -14,7 +15,14 @@
     "method-override": "^1.0.0",
     "mongoose": "^3.8.13",
     "morgan": "^1.0.0",
-    "should": "^4.0.4"
+    "should": "^4.0.4",
+    "gulp": "~3.8.6",
+    "gulp-jshint": "~1.8.0",
+    "gulp-concat": "~2.3.4",
+    "gulp-uglify": "~0.3.1",
+    "gulp-rename": "~1.2.0",
+    "gulp-clean": "~0.3.1",
+    "gulp-sourcemaps": "~1.1.0"
   },
   "devDependencies": {
     "should": "^4.0.4"
