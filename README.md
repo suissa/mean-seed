@@ -18,10 +18,15 @@
 ##The API
 
 > GET /api/beers
+
 > GET /api/beers/populate
+
 > GET /api/beers/\_id/:id
+
 > POST /api/beers/
+
 > PUT /api/beers/\_id/:id
+
 > DELETE /api/beers/\_id/:id
 
 
