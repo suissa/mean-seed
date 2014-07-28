@@ -1,6 +1,5 @@
+(function(angular){
 'use strict';
-
-// Declare app level module which depends on filters, and services
 
 angular.module('myApp', [
   'myApp.controllers',
@@ -8,7 +7,7 @@ angular.module('myApp', [
   'myApp.services',
   'myApp.directives'
 ]).
-config(function ($routeProvider, $locationProvider) {
+config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/beers', {
       templateUrl: 'expose/beers/list',
@@ -34,4 +33,5 @@ config(function ($routeProvider, $locationProvider) {
       redirectTo: '/beers'
     });
   $locationProvider.html5Mode(true);
-});
+}]);
+})(angular);

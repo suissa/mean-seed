@@ -1,3 +1,4 @@
+(function(angular){
 'use strict';
 
 // Helpers
@@ -42,7 +43,9 @@ var _beer = {
 
 // Controllers 
 angular.module('myApp.modules.Beer.controllers', []).
-  controller('AppController', function ($scope, $http) {
+  controller('AppController', 
+    ['$scope', '$http',
+    function ($scope, $http) {
 
     $http({
       method: 'GET',
@@ -55,7 +58,7 @@ angular.module('myApp.modules.Beer.controllers', []).
       $scope.name = 'Error!';
     });
 
-  }).
+  }]).
   controller('RemoveBeer', 
     ['$scope', '$http', 'BeerService', 
     function ($scope, $http, BeerService) {
@@ -72,7 +75,7 @@ angular.module('myApp.modules.Beer.controllers', []).
           });
 
         }
-    }
+    };
   }]).
   controller('BeerCreateController', 
     ['$scope', '$http', 'BeerService',
@@ -89,7 +92,7 @@ angular.module('myApp.modules.Beer.controllers', []).
         }, function(err){
           _beer.cbCreateError(err, $scope); 
         });
-      } 
+      };
 
   }]).
   controller('BeerListController', 
@@ -140,7 +143,7 @@ angular.module('myApp.modules.Beer.controllers', []).
           console.log(err);
           $scope.message = 'Beer cant be removed!';
         });
-      }
+      };
 
   }]).
   controller('BeerEditController', 
@@ -165,21 +168,7 @@ angular.module('myApp.modules.Beer.controllers', []).
           _beer.cbUpdateError(err, $scope);
         });
 
-        // $http({
-        //   url: url,
-        //   method: method,
-        //   data: beer
-        // }).
-        // success(function(data){
-        //   console.log(data);
-        //   $scope.data = data;
-        //   $scope.msg = 'Beer ' +beer.name+ ' update successfully'; 
-        // }).
-        // error(function(err){
-        //   console.log(err);
-        //   $scope.msg = 'Beer cant be updated'; 
-        // });
-      }
+      };
   }]).
   controller('BeerRemoveController', ['$scope', '$http', '$routeParams',
     function ($scope, $http, $routeParams) {
@@ -217,6 +206,7 @@ angular.module('myApp.modules.Beer.controllers', []).
         });
 
       }
-    }
+    };
 
   }]);
+})(angular);
