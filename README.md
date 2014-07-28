@@ -30,7 +30,7 @@
 > DELETE /api/beers/\_id/:id
 
 
-#Architecture
+#Directory Layout
     back/
       bin/
       config/

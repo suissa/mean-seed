@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart mean-seed@0.0.1
+6 verbose unsafe-perm in lifecycle true
+7 info start mean-seed@0.0.1
+8 verbose unsafe-perm in lifecycle true
+9 info mean-seed@0.0.1 Failed to exec start script
+10 error mean-seed@0.0.1 start: `node back/bin/www`
+10 error Exit status 8
+11 error Failed at the mean-seed@0.0.1 start script.
+11 error This is most likely a problem with the mean-seed package,
+11 error not with npm itself.
+11 error Tell the author that this fails on your system:
+11 error     node back/bin/www
+11 error You can get their info via:
+11 error     npm owner ls mean-seed
+11 error There is likely additional logging output above.
+12 error System Darwin 13.3.0
+13 error command "node" "/usr/local/bin/npm" "start"
+14 error cwd /Users/jeancarlonascimento/www/projetos/mean-seed-oficial
+15 error node -v v0.10.29
+16 error npm -v 1.4.14
+17 error code ELIFECYCLE
+18 verbose exit [ 1, true ]
