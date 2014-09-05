@@ -106,6 +106,16 @@ Folder:
 
 **Wait for the Atomic Design**
 
+To implement:
+
+- AngularJS Styleguide - https://github.com/johnpapa/angularjs-styleguide
+- Offline First
+- React Atomic Design Behavior
+- State machine for rollback for fields in databases/offline
+- Authentication
+- SOLID
+- Object Calisthenics
+
 
 MEAN-seed is based in Angular Express Seed, you can see more about below.
 
