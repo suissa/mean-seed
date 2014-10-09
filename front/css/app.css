@@ -12,7 +12,7 @@
 }
 
 .menu:after {
-  content: "]";
+  content: " ]";
 }
 
 .menu > li {
@@ -20,11 +20,18 @@
 }
 
 .menu > li:before {
-  content: "|";
+  content: " |";
   padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+table thead tr th {
+  text-align: left;
+}
+table thead tr th.actions {
+  width: 300px;
 }

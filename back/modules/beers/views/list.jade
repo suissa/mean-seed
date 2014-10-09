@@ -11,6 +11,8 @@ section.pure-g
       tbody
         tr(data-ng-repeat='beer in beers') 
           td
+            {{beer.id}}
+          td
             a(href='/beers/{{beer._id}}') 
               | {{beer.name}}
           td

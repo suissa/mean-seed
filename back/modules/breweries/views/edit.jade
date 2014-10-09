@@ -1,0 +1,20 @@
+h3.title Edit Brewery
+p {{message}}
+
+form
+  .form-group
+    label Name: 
+    input.form-control(data-ng-model='brewery.name'
+                        name='name')
+
+  .form-group
+    label URL: 
+    input.form-control(data-ng-model='brewery.url'
+                        name='url')
+
+  .form-group
+    button.btn.btn-lg(data-ng-click='update(brewery)') Alterar
+
+
+
+

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var BeerSchema = new Schema({
+	_brewery: { type: Number, ref: 'Brewerie' },
   id: { type: Number, min: 0},
   name: { type: String, default: '' },
   description: { type: String, default: '' },

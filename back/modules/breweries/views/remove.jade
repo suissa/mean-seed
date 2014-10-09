@@ -1,0 +1,16 @@
+h2 {{ title }}
+h4 {{ msg }}
+
+p
+  b
+    | Name: 
+  {{ brewery.name }}
+  br
+  b
+    | URL: 
+  {{ brewery.url }}
+  br
+  button(data-ng-click='remove(brewery)') REMOVER
+
+
+

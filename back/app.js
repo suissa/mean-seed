@@ -17,8 +17,6 @@ var express = require('express'),
 
 var app = module.exports = express();
 
-var api = {};
-api.beers = require('./modules/beers/api/routes');
 
 /**
  * Configuration
@@ -58,8 +56,15 @@ app.use('/', routes);
 app.use('/partials', partials);
 app.use('/expose', expose);
 
+
+var api = {};
+api.beers = require('./modules/beers/api/routes');
+api.breweries = require('./modules/breweries/api/routes');
+
+
 // JSON API
 app.use('/api/beers', api.beers);
+app.use('/api/breweries', api.breweries);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(req, res, next) {

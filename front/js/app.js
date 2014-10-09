@@ -29,6 +29,26 @@ config(['$routeProvider', '$locationProvider', function ($routeProvider, $locati
       templateUrl: 'expose/beers/remove',
       controller: 'BeerRemoveController'
     }).
+    when('/breweries', {
+      templateUrl: 'expose/breweries/list',
+      controller: 'BreweryListController'
+    }).
+    when('/breweries/create', {
+      templateUrl: 'expose/breweries/create',
+      controller: 'BreweryCreateController'
+    }).
+    when('/breweries/:id', {
+      templateUrl: 'expose/breweries/show',
+      controller: 'BreweryShowController'
+    }).
+    when('/breweries/:id/edit', {
+      templateUrl: 'expose/breweries/edit',
+      controller: 'BreweryEditController'
+    }).
+    when('/breweries/:id/remove', {
+      templateUrl: 'expose/breweries/remove',
+      controller: 'BreweryRemoveController'
+    }).
     otherwise({
       redirectTo: '/beers'
     });

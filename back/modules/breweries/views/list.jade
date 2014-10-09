@@ -1,0 +1,31 @@
+section.pure-g
+  article.pure-u-1-3
+  article.pure-u-1-3
+    h3.title List of Breweries
+    p.message {{ message }}
+
+    table
+      thead
+        tr
+          th #
+          th Name
+          th URL
+          th.actions Açoes
+      tbody
+        tr(data-ng-repeat='brewery in breweries') 
+          td
+            {{brewery.id}}
+          td
+            a(href='/breweries/{{brewery._id}}') 
+              | {{brewery.name}}
+          td
+            a(href='{{brewery.url}}') 
+              | {{brewery.url}}
+          td
+            a(href='/breweries/{{brewery._id}}/edit') 
+              | EDIT
+            span(data-ng-controller='RemoveBrewery')
+              button(data-ng-click='remove(brewery)') REMOVER
+        
+  article.pure-u-1-3
+
