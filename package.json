@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "prestart" : "gulp",
+    "prestart": "gulp",
     "start": "nodemon back/bin/www"
   },
   "dependencies": {
@@ -11,18 +11,22 @@
     "debug": "^1.0.4",
     "errorhandler": "^1.1.1",
     "express": "~4.1.1",
+    "express-session": "^1.9.3",
+    "gulp": "~3.8.6",
+    "gulp-clean": "~0.3.1",
+    "gulp-concat": "~2.3.4",
+    "gulp-jshint": "~1.8.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-sourcemaps": "~1.1.0",
+    "gulp-uglify": "~0.3.1",
     "jade": "~0.31.2",
     "method-override": "^1.0.0",
     "mongoose": "^3.8.13",
     "morgan": "^1.0.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
     "should": "^4.0.4",
-    "gulp": "~3.8.6",
-    "gulp-jshint": "~1.8.0",
-    "gulp-concat": "~2.3.4",
-    "gulp-uglify": "~0.3.1",
-    "gulp-rename": "~1.2.0",
-    "gulp-clean": "~0.3.1",
-    "gulp-sourcemaps": "~1.1.0"
+    "uid2": "0.0.3"
   },
   "devDependencies": {
     "should": "^4.0.4"
