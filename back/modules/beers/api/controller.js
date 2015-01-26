@@ -11,7 +11,7 @@ module.exports = {
     });
   },
   retrieve: function(req, res, cb){
-    Beer.find({}, function (err, data) {
+    Beer.find({}).lean().exec(function (err, data) {
       cb(err, data, res);
     });
   },
@@ -19,7 +19,7 @@ module.exports = {
     var id = req.params.id;
     var query = {_id: id};
 
-    Beer.findOne(query, function (err, data) {
+    Beer.findOne(query).lean().exec(function (err, data) {
       cb(err, data, res);
     });
   },
@@ -27,7 +27,7 @@ module.exports = {
     var id = req.params.id;
     var query = {id: id};
 
-    Beer.findOne(query, function (err, data) {
+    Beer.findOne(query).lean().exec(function (err, data) {
       cb(err, data, res);
     });
   },
@@ -35,13 +35,13 @@ module.exports = {
     var name = req.params.name;
     var query = {name: name};
 
-    Beer.findOne(query, function (err, data) {
+    Beer.findOne(query).lean().exec(function (err, data) {
       cb(err, data, res);
     });
   },
   update: function(req, res, cb){
     var id = req.params.id;
-    var query = {_id: id}; 
+    var query = {_id: id};
     var mod = req.body;
     delete mod._id;
     Beer.update(query, mod, function (err, data) {
@@ -50,7 +50,7 @@ module.exports = {
   },
   delete: function(req, res, cb){
     var id = req.params.id;
-    var query = {_id: id}; 
+    var query = {_id: id};
 
     Beer.remove(query, function(err, data) {
       cb(err, data, res);
