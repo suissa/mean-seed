@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
     name: {type: String},
     birthday: {type: Date},
     gender: {type: String, default: ''},
-    adress: {type: String, default: ''},
+    address: {type: String, default: ''},
     created: {type: Date, default: Date.now},
     updated: {type:Date, default: Date.now}
   });
