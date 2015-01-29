@@ -1,5 +1,6 @@
 language: node_js
 node_js:
-  - "0.10"
-before_install:
-  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+  - '0.10'
+before_install: npm install nodemon && npm install -g gulp-cli
+install: npm install
+before_script: npm start
