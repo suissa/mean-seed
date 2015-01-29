@@ -1,0 +1,28 @@
+h2 {{ title }}
+h4 {{ msg }}
+
+p
+  b
+    | Name: 
+  {{ beer.name }}
+  br
+  b
+    | ABV: 
+  {{ beer.abv }}
+  br
+  b
+    | Brewery:
+  {{ beer.brewery.name }}
+  br
+  b
+    | Category: 
+  {{ beer.category }}
+  br
+  b
+    | Description: 
+  {{ beer.description }}
+  br
+  button(data-ng-click='remove(beer)') REMOVER
+
+
+

@@ -1,0 +1,11 @@
+h3.title Edit Application
+p {{message}}
+
+form
+  .form-group
+    label Name: 
+    input.form-control(data-ng-model='application.name'
+                        name='name')
+                        
+  .form-group
+    button.btn.btn-lg(data-ng-click='update(application)') Alterar

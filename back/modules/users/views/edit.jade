@@ -1,0 +1,34 @@
+h3.title Edit Beer
+p {{message}}
+
+form
+  .form-group
+    label Name: 
+    input.form-control(data-ng-model='beer.name'
+                        name='name')
+
+  .form-group
+    label Category: 
+    input.form-control(data-ng-model='beer.category'
+                        name='category')
+
+  .form-group
+    label ABV:
+    input.form-control(data-ng-model='beer.abv'
+                        name='abv')
+
+  .form-group
+    label brewery: 
+    input.form-control(data-ng-model='beer.brewery.name'
+                        name='brewery.name')
+
+  .form-group
+    label Description: 
+    textarea.form-control(data-ng-model='beer.description'
+                        name='description') 
+  .form-group
+    button.btn.btn-lg(data-ng-click='update(beer)') Alterar
+
+
+
+
