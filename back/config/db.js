@@ -37,6 +37,5 @@ process.on('SIGINT', function() {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS
-require('../modules/beers/model');
-require('../modules/breweries/model');
-
+require('../modules/applications/model');
+require('../modules/issues/model');

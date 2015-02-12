@@ -6,9 +6,10 @@ var IssueSchema = new Schema({
   version: { type: String },
   file: { type: String },
   line: { type: Number },
-  addrees: { type: String },
+  address: { type: String },
   message: { type: String },
-  additional: { type: String }
+  additional: { type: String },
+  application: { type: Schema.Types.ObjectId, ref: 'Application' }
 });
 
 module.exports = mongoose.model('Issue', IssueSchema);

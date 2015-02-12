@@ -67,14 +67,14 @@ app.use('/auth', users);
 
 
 var api = {};
-api.beers = require('./modules/beers/api/routes');
-api.breweries = require('./modules/breweries/api/routes');
 api.users = require('./modules/users/api/routes');
+api.applications = require('./modules/applications/api/routes');
+api.issues = require('./modules/issues/api/routes');
 
 // JSON API
-app.use('/api/beers', api.beers);
-app.use('/api/breweries', api.breweries);
 app.use('/api/users', api.users);
+app.use('/api/applications', api.applications);
+app.use('/api/issues', api.issues);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(req, res, next) {
@@ -84,4 +84,3 @@ app.get('*', function(req, res, next) {
 
 
 module.exports = app;
-

@@ -4,8 +4,7 @@
 // Controllers 
 angular.module('myApp.controllers', 
   [
-    'myApp.modules.Beer.controllers',
-    'myApp.modules.Brewery.controllers',
-    'myApp.modules.Application.controllers'
+    'myApp.modules.Application.controllers',
+    'myApp.modules.Issue.controllers'
   ]);
 })(angular);

@@ -30,6 +30,20 @@ config(['$routeProvider', '$locationProvider', function ($routeProvider, $locati
       templateUrl: 'expose/applications/remove',
       controller: 'ApplicationRemoveController'
     }).
+    // Issues
+    when('/issues', {
+      templateUrl: 'expose/issues/list',
+      controller: 'IssueListController'
+    }).
+    when('/issues/create', {
+      templateUrl: 'expose/issues/create',
+      controller: 'IssueCreateController'
+    }).
+    when('/issues/list', {
+      templateUrl: 'expose/issues/list',
+      controller: 'IssueListController'
+    }).
+    // Default
     otherwise({
       redirectTo: '/applications'
     });
