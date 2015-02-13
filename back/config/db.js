@@ -2,7 +2,7 @@
 var mongoose = require( 'mongoose' );
 
 // Build the connection string
-var dbURI = 'mongodb://localhost/mean-seed-test';
+var dbURI = 'mongodb://localhost/froid';
 
 // Create the database connection
 mongoose.connect(dbURI);
