@@ -9,9 +9,8 @@ section.pure-g
             div.pure-control-group
                 label(for='file') Application:
                 select.form-control(name='application',
-                    data-ng-model='issue.application')
-                    each application in applications
-                        option(value=appication._id) #{application.name}
+                    data-ng-model='issue.application',
+                    ng-options='application as application.name for application in applications')
 
             div.pure-control-group
                 label(for='hash') Hash:

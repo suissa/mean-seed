@@ -75,18 +75,24 @@ angular.module('myApp.modules.Issue.controllers', []).
             };
         }]).
     controller('IssueCreateController',
-    ['$scope', '$http', 'IssueService',
-        function ($scope, $http, IssueService) {
+    ['$scope', '$http', 'IssueService', 'ApplicationService',
+        function ($scope, $http, IssueService, ApplicationService) {
 
             var Issue = IssueService;
+            var Application = ApplicationService;
 
             $scope.message = 'Fill the form bellow';
-            $scope.applications = [];
+
+            Application.find().success(function (data) {
+                $scope.applications = data;
+            }).error(function () {
+                $scope.applications = [];
+            });
 
             $scope.create = function (issue) {
                 Issue.create(issue).then(
                     function (data) {
-                        _issue.cbCreateSuccess(ret, $scope);
+                        _issue.cbCreateSuccess(data, $scope);
                     }, function (err) {
                         _issue.cbCreateError(err, $scope);
                     });
