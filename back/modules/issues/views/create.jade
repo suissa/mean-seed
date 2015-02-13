@@ -4,48 +4,7 @@ section.pure-g
         h3.title Create Issue
         p {{message}}
 
-        form.pure-form.pure-form-stacked
-
-            div.pure-control-group
-                label(for='file') Application:
-                select.form-control(name='application',
-                    data-ng-model='issue.application',
-                    ng-options='application as application.name for application in applications')
-
-            div.pure-control-group
-                label(for='hash') Hash:
-                input.form-control(name='hash',
-                data-ng-model='issue.hash')
-
-            div.pure-control-group
-                label(for='version') Version:
-                input.form-control(name='version',
-                data-ng-model='issue.version')
-
-            div.pure-control-group
-                label(for='file') File:
-                input.form-control(name='file',
-                data-ng-model='issue.file')
-
-            div.pure-control-group
-                label(for='file') Line:
-                input.form-control(name='line',
-                data-ng-model='issue.line')
-
-            div.pure-control-group
-                label(for='file') Address:
-                input.form-control(name='address',
-                data-ng-model='issue.address')
-
-            div.pure-control-group
-                label(for='file') Message:
-                input.form-control(name='message',
-                data-ng-model='issue.message')
-
-            div.pure-control-group
-                label(for='file') Additional Information:
-                input.form-control(name='additional',
-                data-ng-model='issue.additional')
+        include form
 
         button.btn.btn-lg(data-ng-click='create(issue)') Create
     article.pure-u-1-3

@@ -85,7 +85,7 @@ angular.module('myApp.modules.Issue.controllers', []).
 
             Application.find().success(function (data) {
                 $scope.applications = data;
-            }).error(function () {
+            }).error(function (err) {
                 $scope.applications = [];
             });
 
@@ -148,13 +148,21 @@ angular.module('myApp.modules.Issue.controllers', []).
             };
         }]).
     controller('IssueEditController',
-    ['$scope', '$http', '$routeParams', 'IssueService',
-        function ($scope, $http, $routeParams, IssueService) {
+    ['$scope', '$http', '$routeParams', 'IssueService', 'ApplicationService',
+        function ($scope, $http, $routeParams, IssueService, ApplicationService) {
 
             var id = $routeParams.id;
             var url = 'api/issues/_id/' + id;
 
             var Issue = IssueService;
+            var Application = ApplicationService;
+
+            Application.find().success(function (data) {
+                $scope.applications = data;
+            }).error(function (err) {
+                $scope.applications = [];
+            });
+
             Issue.findOne(id).then(function (data) {
                 _issue.cbShowSuccess(data, $scope);
             }, function (err) {
