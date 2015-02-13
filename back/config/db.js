@@ -2,7 +2,7 @@
 var mongoose = require( 'mongoose' );
 
 // Build the connection string
-var dbURI = 'mongodb://localhost/mean-seed-test';
+var dbURI = 'mongodb://localhost/froid';
 
 // Create the database connection
 mongoose.connect(dbURI);
@@ -37,6 +37,5 @@ process.on('SIGINT', function() {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS
-require('../modules/beers/model');
-require('../modules/breweries/model');
-
+require('../modules/applications/model');
+require('../modules/issues/model');

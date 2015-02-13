@@ -1,5 +1,5 @@
 {
-  "name": "mean-seed",
+  "name": "freud",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -30,6 +30,7 @@
     "uid2": "0.0.3"
   },
   "devDependencies": {
-    "should": "^4.0.4"
+    "should": "^4.0.4",
+    "nodemon": "^1.3.7"
   }
 }

@@ -1,0 +1,39 @@
+section.pure-g
+  article.pure-u-1-3
+  article.pure-u-1-3
+    h3.title Create User
+    p {{message}}
+
+    form.pure-form.pure-form-stacked
+      div.pure-control-group      
+        label(for='name') Name: 
+        input.form-control(name='name',
+                          data-ng-model='user.name')
+                          
+      div.pure-control-group
+        label(for='password') Password: 
+        input.form-control(name='password', type='password'
+                          data-ng-model='user.password')
+                          
+      div.pure-control-group
+        label(for='category') Address: 
+        input.form-control(name='address',
+                          data-ng-model='user.address')
+
+      div.pure-control-group
+        label(for='email') Email: 
+        input.form-control(name='email',
+                          data-ng-model='user.email')
+                          
+      div.pure-control-group
+        label(for='birthday') Birthday: 
+        input.form-control(name='birthday',
+                          data-ng-model='user.birthday')
+                          
+      div.pure-control-group
+        label(for='gender') Gender: 
+        input.form-control(name='gender',
+                          data-ng-model='user.gender')
+
+      button.btn.btn-lg(data-ng-click='create(user)') Create
+  article.pure-u-1-3

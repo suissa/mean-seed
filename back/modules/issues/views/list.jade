@@ -1,0 +1,25 @@
+section.pure-g
+  article.pure-u-1-3
+  article.pure-u-1-3
+    h3.title List of Issues
+    p.message {{ message }}
+
+    table
+      thead
+        tr
+          th 
+      tbody
+        tr(data-ng-repeat='issue in issues') 
+          td
+            {{issue.id}}
+          td
+            a(href='/issues/{{issue._id}}') 
+              | {{issue.hash}}
+          td
+            a(href='/issues/{{issue._id}}/edit') 
+              | EDIT
+          td 
+            span(data-ng-controller='RemoveIssue')
+              button(data-ng-click='remove(issue)') DELETE
+        
+  article.pure-u-1-3
