@@ -1,3 +1,3 @@
-# Froid
+# Freud
 
-[![Build Status](https://travis-ci.org/rodrigogs/froid.svg)](https://travis-ci.org/rodrigogs/froid)
+[![Build Status](https://travis-ci.org/rodrigogs/freud.svg)](https://travis-ci.org/rodrigogs/freud)
