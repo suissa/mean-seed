@@ -7,18 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var api = {};
-api.activityTypes = require('./modules/activity-types/routes/api');
-api.eventVersions = require('./modules/event-versions/routes/api');
-api.events = require('./modules/events/routes/api');
-api.incidents = require('./modules/incidents/routes/api');
-api.infraItems  = require('./modules/infra-items/routes/api');
-api.offices  = require('./modules/offices/routes/api');
-api.places  = require('./modules/places/routes/api');
-api.requests  = require('./modules/requests/routes/api');
-api.roles  = require('./modules/roles/routes/api');
-api.suppliers  = require('./modules/suppliers/routes/api');
-api.teamMembers  = require('./modules/team-members/routes/api');
-api.teams  = require('./modules/teams/routes/api');
+api.groups = require('./modules/groups/routes/api');
 api.users  = require('./modules/users/routes/api');
 
 var app = express();
@@ -55,18 +44,7 @@ var expose = require('./modules/expose/routes');
 app.use('/', routes);
 app.use('/expose', expose);
 
-app.use('/api/activity-types', api.activityTypes);
-app.use('/api/event-versions', api.eventVersions);
-app.use('/api/events', api.events);
-app.use('/api/incidents', api.incidents);
-app.use('/api/infra-items', api.infraItems);
-app.use('/api/offices', api.offices);
-app.use('/api/places', api.places);
-app.use('/api/requests', api.requests);
-app.use('/api/roles', api.roles);
-app.use('/api/suppliers', api.suppliers);
-app.use('/api/team-members', api.teamMembers);
-app.use('/api/teams', api.teams);
+app.use('/api/groups', api.groups);
 app.use('/api/users', api.users);
 
 // catch 404 and forward to error handler
