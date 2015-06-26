@@ -1,0 +1,10 @@
+<span data-ng-init="module = 'offices'"></span>
+<h2>{{ title }}</h2>
+
+<ul>
+  <li data-ng-repeat='item in list'>
+    <a data-ng-href="/{{ module }}/{{ item._id }}">
+      {{ item.name }}
+    </a>
+  </li>
+</ul>
