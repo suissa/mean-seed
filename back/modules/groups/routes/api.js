@@ -1,6 +1,7 @@
 var express = require('express')
   , router = express.Router()
   , Controller = require('./../controller')
+  , Routes = require('./../routes')
   ;
 
 var cbCreate = function(req, res) {
@@ -52,11 +53,6 @@ var routes = [{
   }
 ];
 
-function createRoute(element, index, array) {
-  router[element.method](element.url, element.callback);
-}
-
-
-routes.forEach(createRoute);
+routes.forEach(Routes.createRoute);
 
 module.exports = router;
