@@ -12,11 +12,11 @@ api.users  = require('./modules/users/routes/api');
 
 var app = express();
 
-app.use('/js', express.static(__dirname + '/../front'));
+//app.use('/js', express.static(__dirname + '/../front'));
 // app.use('/dist', express.static(__dirname + '/../dist'));
-app.use('/css', express.static(__dirname + '/../front/styles'));
-app.use('/styles', express.static(__dirname + '/../front/styles'));
-app.use('/bower_components', express.static(__dirname + '/../front/bower_components'));
+//app.use('/css', express.static(__dirname + '/../front/styles'));
+//app.use('/styles', express.static(__dirname + '/../front/styles'));
+//app.use('/bower_components', express.static(__dirname + '/../front/bower_components'));
 
 // app.all('/*', function(req, res, next) {
 //     // Just send the index.html for other files to support HTML5Mode
