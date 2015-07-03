@@ -2,24 +2,24 @@
 
   'use strict';
   // Aqui eu seto o modulo principal, suas dependencias internas e suas rotas
-  angular.module('myApp.Offices', [
+  angular.module('myApp.Groups', [
     'ngRoute'
-  , 'OfficesServiceModule'
-  , 'OfficesControllerModule'
+  , 'GroupsServiceModule'
+  , 'GroupsControllerModule'
   ])
 
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/offices', {
-        templateUrl: 'modules/offices/views/list.html',
+      .when('/groups', {
+        templateUrl: 'expose/groups/index/html',
         controller: 'ListCtrl'
       })
-      .when('/offices/form', {
-        templateUrl: 'modules/offices/views/form.html',
+      .when('/groups/form', {
+        templateUrl: 'expose/groups/form/html',
         controller: 'FormCtrl'
       })
-      .when('/offices/:id', {
-        templateUrl: 'modules/offices/views/get.html',
+      .when('/groups/:id', {
+        templateUrl: 'expose/groups/get/html',
         controller: 'GetCtrl'
       })
     ;

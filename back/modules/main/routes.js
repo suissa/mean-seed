@@ -8,8 +8,4 @@ router.get('/', function (req, res) {
 
 });
 
-router.get('/dashboard', function (req, res){
-  res.render('main/views/dashboard');
-});
-
 module.exports = router;

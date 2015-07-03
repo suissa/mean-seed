@@ -2,11 +2,14 @@
 
   'use strict';
 
-  angular.module('OfficesServiceModule', [])
-  .service('OfficesService', OfficesService);
+  angular.module('GroupsServiceModule', [])
+  .service('GroupsService', GroupsService)
+  ;
 
-  function OfficesService($http) {
-    var urlBase = '//localhost:3000/api/offices';
+  function GroupsService($http) {
+    var urlBase = '//localhost:3000/api/groups';
+
+    this.items = [];
     this.find = function() {
       return $http.get(urlBase);
     };
@@ -20,13 +23,13 @@
     };
 
     this.update = function(data) {
-        return $http.put(urlBase + '/_id/' + data._id, data);
+        return $http.put(urlBase + '/' + data._id, data);
     };
 
     this.remove = function(data) {
-        return $http.delete(urlBase + '/_id/' + data._id, data);
+        return $http.delete(urlBase + '/' + data._id, data);
     };
   };
-  OfficesService.$inject = ['$http'];
+  GroupsService.$inject = ['$http'];
 
 })();

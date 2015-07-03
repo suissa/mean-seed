@@ -1,13 +1,12 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
+// Modulo principal com suas dependencias e nossos modulos
 angular.module('myApp', [
   'ngRoute',
-  'myApp.ActivityTypes', // Adicionei o modulo criado no modulo PRINCIPAL
-  'myApp.Offices' // Adicionei o modulo criado no modulo PRINCIPAL
+  'myApp.Groups' // Adicionei o modulo criado no modulo PRINCIPAL
   
 ]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/groups'});
   $locationProvider.html5Mode(true)
 }]);

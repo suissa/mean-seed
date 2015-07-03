@@ -1,0 +1,18 @@
+<span data-ng-init="module = 'groups'"></span>  
+<h2>Cadastro de {{module | uppercase}}</h2>
+<form name="form-{{module}}" data-ng-controller="FormCtrl">
+  <label>
+    <span>Name:</span> 
+    <input type="text" data-ng-model="Form.name" />
+  </label>
+  <button data-ng-click="save(Form)">Save</button>
+</form>
+
+<h2>Listagem de {{module | uppercase}}</h2>
+<ul>
+  <li data-ng-repeat='item in list'>
+    <a data-ng-href="/{{ module }}/{{ item._id }}">
+      {{ item.name }}
+    </a>
+  </li>
+</ul>
