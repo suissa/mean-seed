@@ -18,4 +18,15 @@ db.on('disconnected', function(err){
     console.log('Desconectado')
 });
 
+db.on('error',function (err) {
+  console.log('Erro de padrão de conexão do Mongoose: ' + err);
+});
+
+process.on ('SIGINT', function () {
+  db.close (function () {
+    console.log ('conexão Mongoose desconectada através de término do node CRTL + C');
+    process.exit (0);
+  });
+});
+
 module.exports = db;
